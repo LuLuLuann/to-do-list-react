@@ -17,13 +17,21 @@ function todosReducer(state, action) {
         userId: 1,
       };
       return [newTodo, ...state];
-  }
+    }
     case "toggle_todo":
-  return state.map(todo => todo.id === action.payload ? {...todo, completed: !todo.completed} : todo)
+      return state.map(todo => todo.id === action.payload ? { ...todo, completed: !todo.completed } : todo);
 
-default:
-  return state;
-}
+    case "edit_todo":
+      return state.map((todo) =>
+        todo.id === action.payload.id ? { ...todo, title: action.payload.title } : todo
+      );
+
+    case "delete_todo":
+      return state.filter((todo) => todo.id !== action.payload);
+
+    default:
+      return state;
+  }
 }
 
 function App() {
@@ -33,25 +41,29 @@ function App() {
   // console.log(todos);
 
   const handleClick = () => {
-    dispatch({type:"add_todo", payload: newTodo})
+    dispatch({ type: "add_todo", payload: newTodo })
   }
 
   return (
     <>
-      <h1>To Do List</h1>
+   
+      <h1
+      className="toDoListTitle"
+      >To Do List</h1>
+
       <input
-      className="inputField"
+        className="inputField"
         type="text"
         placeholder="Add to do"
         value={newTodo}
         onChange={e => setNewTodo(e.target.value)}
       />
-      <button 
-      className="addButton"
-      onClick={handleClick}>Add</button>
+      <button
+        className="addButton"
+        onClick={handleClick}>Add</button>
 
       {/* {todos.map(t => <Todo todo={t} key={t.id} dispatch={dispatch} />)} */}
-      {todos.map(t => <Todo key={t.id} dispatch={dispatch} {...t}/>)}
+      {todos.map(t => <Todo key={t.id} dispatch={dispatch} {...t} />)}
 
       {/* or destructure like this */}
       {/* {todos.map(t => <Todo todo={...t} key={t.id} />)} */}
