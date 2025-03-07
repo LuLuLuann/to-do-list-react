@@ -1,0 +1,57 @@
+body {
+  background-color: rgb(182, 118, 241);
+  text-align: center;
+}
+
+.toDoItem{
+  /* to do item */
+  color: rgb(182, 118, 241);
+  background-color: black;
+  padding: 10px;
+  border-bottom: 8px solid ;
+}
+
+.inputField {
+  background-color: black;
+  border: 5px solid white;
+  padding: 10px;
+  margin-bottom: 20px;
+  margin-right: 20px; 
+  font-size: 15px;
+  color: white; 
+  font-weight: bold;
+}
+
+.addButton{
+  background-color:aquamarine; 
+  font-size: 15px; 
+  font-weight: bolder;
+  padding: 12px;
+  border: 5px solid black;
+  border-radius:30px;
+}
+
+.editDeleteButtons{
+background-color: yellow;
+border-radius: 30px;
+}
+
+.editButton{
+  background-color:rgb(182, 118, 241); 
+  font-size: 15px; 
+  font-weight: bolder;
+  padding: 12px;
+  border: 5px solid black;
+  margin-right: 10px;
+  border-radius:30px;
+  
+}
+
+.deleteButton{
+  background-color:rgb(182, 118, 241); 
+  font-size: 15px; 
+  font-weight: bolder;
+  padding: 12px;
+  border: 5px solid black;
+  border-radius:30px;
+}
